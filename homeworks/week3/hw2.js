@@ -1,3 +1,14 @@
+const readline = require('readline')
+
+const lines = []
+const rl = readline.createInterface({
+  input: process.stdin
+})
+
+rl.on('line', (line) => lines.push(line))
+
+rl.on('close', () => solve(lines))
+
 function solve(lines) {
   const temp = lines[0].split(' ')
   const minNum = Number(temp[0])
@@ -18,5 +29,3 @@ function isDaffodil(n) {
   }
   return n === result
 }
-
-solve(['5 200'])
