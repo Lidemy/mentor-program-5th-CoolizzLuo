@@ -1,5 +1,6 @@
-const API = 'https://lidemy-book-store.herokuapp.com'
 const request = require('request')
+
+const API = 'https://lidemy-book-store.herokuapp.com'
 
 const bookAPI = {
   list() {
