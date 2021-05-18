@@ -1,5 +1,6 @@
-const API = 'https://restcountries.eu/rest/v2/name'
 const request = require('request')
+
+const API = 'https://restcountries.eu/rest/v2/name'
 
 request.get(`${API}/tai`, (err, res, body) => {
   if (err) return console.log('catch error', err)
