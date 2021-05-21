@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+body {
+  background: #ddd;
+}
+
+.warper {
+  margin: 130px auto;
+  padding: 35px 42px;
+  text-align: left;
+  border-top: 8px solid #fad312;
+  max-width: 645px;
+  background: #fff;
+  box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.info {
+  margin: 30px 0;
+  font-size: 14px;
+}
+
+.info p + p {
+  margin-top: 10px;
+}
+
+.danger {
+  color: red;
+  font-size: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  font-size: 20px;
+  margin: 50px 0 40px;
+}
+.input-group > label {
+  margin-bottom: 20px;
+}
+.input-group > label.star::after {
+  content: '*';
+  color: red;
+  font-size: 20px;
+  margin-left: 5px;
+}
+.input-group > input {
+  padding: 2px 5px;
+  width: 45%;
+  font-size: 16px;
+}
+
+.input-group label + label {
+  font-size: 14px;
+}
+
+.input-group p {
+  font-size: 14px;
+}
+
+.submit {
+  padding: 13px 32px;
+  margin: 20px 0;
+  background: #fad312;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.input-group > label > p {
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 26px 0 21px;
+  background: #000;
+  border-top:2px solid #fad312;
+}
+footer .copyright {
+  color: #999;
+}
+
+@media(max-width: 768px) {
+  .input-group > input {
+    width: 80%;
+  }
+}

@@ -23,6 +23,7 @@ img {
 .container {
   max-width: 1920px;
   margin: 0 auto;
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
 }
 .navbar {
   display: flex;
@@ -108,6 +109,10 @@ section h2::before {
   transform: translateX(-200%);
 }
 
+section .content > p {
+  padding: 0 10px;
+}
+
 section .content > p ~ p {
   margin-top: 21px;
 }
@@ -124,6 +129,11 @@ section .btn-group > a {
   font-weight: 600;
   padding: 65px 80px;
   border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+section .btn-group > a:hover {
+  transform: scale(1.2);
 }
 
 section .pic-wall {
@@ -170,7 +180,7 @@ section .comment-wall {
 }
 
 .comment-wall .person > .comment {
-  line-height: 2;
+  line-height: 2rem;
 }
 
 section iframe.map {
@@ -241,6 +251,10 @@ footer .copyright {
     border-radius: 0px;
     color: #111;
     font-weight: 700;
+  }
+
+  section .btn-group > a {
+    margin: 15px 0;
   }
   
   section .pic-wall {

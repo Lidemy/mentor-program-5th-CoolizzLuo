@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazy Form</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,500,700,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="warper">
+    <h1>新拖延運動報名表單</h1>
+    <div class="info">
+      <p>活動日期：2020/12/10 ~ 2020/12/11</p>
+      <p>活動地點：台北市大安區新生南路二段1號</p>
+    </div>
+    <span class="danger">* 必填</span>
+    <form action="">
+      <div class="input-group">
+        <label for="username" class="star">暱稱</label>
+        <input type="text" id="username" name="username" placeholder="您的回答">
+      </div>
+      <div class="input-group">
+        <label for="email" class="star">電子郵件</label>
+        <input type="email" id="email" name="email" placeholder="您的電子郵件">
+      </div>
+      <div class="input-group">
+        <label for="phone" class="star">手機號碼</label>
+        <input type="number" id="phone" name="phone" placeholder="您的手機號碼">
+      </div>
+      <div class="input-group">
+        <label class="star">報名類型</label>
+        <label>
+          <input type="radio" name="type" value="1">&ensp; 躺在床上用想像力實作
+        </label>
+        <label>
+          <input type="radio" name="type" value="2">&ensp; 趴在地上滑手機找現成的
+        </label>
+      </div>
+      <div class="input-group">
+        <label for="reason" class="star">怎麼知道這個活動的？</label>
+        <input type="text" id="reason" name="reason" placeholder="您的回答">
+      </div>
+      <div class="input-group">
+        <label for="other">其他<p>對活動的一些建議</p></label>
+        <input type="text" id="other" name="other" placeholder="您的回答">
+      </div>
+      <input type="submit" class="submit" value="提交">
+      <p class="message">請勿透過表單送出您的密碼。</p>
+    </form>
+  </div>
+  <footer>
+    <p class="copyright">&copy; 2020 &copy; Copyright. All rights Reserved.</p>
+  </footer>
+</body>
+</html>
