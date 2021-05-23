@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,500,700,900&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.warpper {
+  max-width: 85%;
+  background: #f6f6ef;
+  margin: 10px auto;
+}
+header {
+  position: relative;
+  display: flex;
+  padding: 2px;
+  background: #ff6600;
+  h1 {
+    position: relative;
+    font-size: 14px;
+    font-weight: 900;
+    padding-left: 1.5rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border: 1px solid #fff;
+      background: url(../y18.gif) no-repeat;
+    }
+  }
+  .login {
+    position: absolute;
+    right: 8px;
+    font-weight: 300;
+    font-size: 14px;
+  }
+}
+
+.nav {
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  margin-left: 10px;
+  li {
+    margin: 0 0.35rem;
+    list-style: none;
+    a {
+      display: inline-block;
+      font-weight: 300;
+    }
+    & + li > a {
+      position: relative;
+      padding-left: 0.35rem;
+      &::before {
+        position: absolute;
+        content: '|';
+        left: -0.35rem;
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+
+main {
+  padding: 0.7rem 1.8rem;
+  .news-list {
+    color: #828282;
+    font-size: 0.85rem;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+  .news {
+    &::before {
+      content: '';
+      display: inline-block;
+      border-bottom: 8px solid #aaa;
+      border-right: 5px solid #f6f6ef;
+      border-left: 5px solid #f6f6ef;
+      transform: translateY(-20%);
+    }
+  }
+  .info {
+    padding-left: 12px;
+    font-size: 12px;
+    a {
+      margin: 0 2px;
+    }
+    .time ~ a {
+      padding-left: 6px;
+      &::before {
+        content: '|';
+        position: relative;
+        left: -6px;
+      }
+    }
+  }
+
+  a {
+    color: #828282;
+  }
+  .title {
+    color: #333;
+  }
+}
+
+footer {
+  border-top: 2px solid #ff6600;
+  padding: 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .nav {
+    margin-bottom: 1rem;
+    a {
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+  .search {
+    font-size: 12px;
+    color: #828282;
+    input {
+      width: 140px;
+    }
+  }
+}

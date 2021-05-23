@@ -36,7 +36,7 @@ h1 {
   font-size: 16px;
 }
 
-.input-group {
+.input-block {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -44,26 +44,26 @@ h1 {
   font-size: 20px;
   margin: 50px 0 40px;
 }
-.input-group > label {
+.input-block > label {
   margin-bottom: 20px;
 }
-.input-group > label.star::after {
+.input-block > label.star::after {
   content: '*';
   color: red;
   font-size: 20px;
   margin-left: 5px;
 }
-.input-group > input {
+.input-block > input {
   padding: 2px 5px;
   width: 45%;
   font-size: 16px;
 }
 
-.input-group label + label {
+.input-block label + label {
   font-size: 14px;
 }
 
-.input-group p {
+.input-block p {
   font-size: 14px;
 }
 
@@ -77,7 +77,7 @@ h1 {
   cursor: pointer;
 }
 
-.input-group > label > p {
+.input-block > label > p {
   margin-top: 10px;
 }
 
@@ -92,7 +92,7 @@ footer .copyright {
 }
 
 @media(max-width: 768px) {
-  .input-group > input {
+  .input-block > input {
     width: 80%;
   }
 }
