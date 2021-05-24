@@ -61,7 +61,9 @@ h1 {
     width: 45%;
     font-size: 16px;
   }
-  & > label > p {
+  & > label > .sub-title {
+    font-size: 14px;
+    font-weight: 300;
     margin-top: 10px;
   }
 }
@@ -85,7 +87,6 @@ footer {
     color: #999;
   }
 }
-
 
 @media(max-width: 768px) {
   .input-block > input {

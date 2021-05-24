@@ -78,7 +78,9 @@ h1 {
   font-size: 16px;
 }
 
-.input-block > label > p {
+.input-block > label > .sub-title {
+  font-size: 14px;
+  font-weight: 300;
   margin-top: 10px;
 }
 
