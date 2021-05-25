@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,500,700,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+body {
+  background: #ddd;
+}
+
+.warpper {
+  margin: 130px auto;
+  padding: 35px 42px;
+  text-align: left;
+  border-top: 8px solid #fad312;
+  max-width: 645px;
+  background: #fff;
+  box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.info {
+  margin: 30px 0;
+  font-size: 14px;
+  & > p {
+    margin-top: 10px;
+  }
+}
+
+.danger {
+  color: red;
+  font-size: 16px;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  font-size: 20px;
+  margin: 50px 0 40px;
+  &.required > :first-child::after {
+    content: '*';
+    color: red;
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  & > label {
+    margin-bottom: 20px;
+  } 
+  & label + label {
+    font-size: 14px;
+  }
+  & > input {
+    padding: 2px 5px;
+    width: 45%;
+    font-size: 16px;
+  }
+  & > label > .sub-title {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 10px;
+  }
+}
+
+.submit {
+  padding: 13px 32px;
+  margin: 20px 0;
+  background: #fad312;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 26px 0 21px;
+  background: #000;
+  border-top:2px solid #fad312;
+  & > .copyright {
+    color: #999;
+  }
+}
+
+@media(max-width: 768px) {
+  .input-block > input {
+    width: 80%;
+  }
+}
