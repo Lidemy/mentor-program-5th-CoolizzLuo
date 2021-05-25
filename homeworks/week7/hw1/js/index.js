@@ -17,11 +17,20 @@ function verify() {
   })
 }
 
+function getFormData() {
+  const data = new FormData(form)
+  const obj = {}
+  for (const [name, value] of data) {
+    obj[name] = value
+  }
+  return obj
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   verify()
-  if (!document.querySelector('.highlight')) {
-    // form.submit()
-    alert('驗證Ok')
-  }
+  const errorEl = document.querySelector('.highlight')
+  if (errorEl) return errorEl.focus()
+  alert('驗證Ok')
+  console.log(getFormData())
 })
