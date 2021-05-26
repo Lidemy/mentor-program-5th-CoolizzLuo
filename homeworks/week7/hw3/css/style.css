@@ -1,0 +1,162 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,500,700,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+html, body {
+  background: #f7f1f1;
+  font-size: 1.1rem;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#app {
+  margin: 4rem auto;
+  padding: 2rem 3rem 3rem;
+  max-width: 500px;
+  background: #6a89cc;
+  color: #FFF;
+  -webkit-box-shadow: 20px -20px 0px 0px rgba(100, 100, 100, 0.1);
+          box-shadow: 20px -20px 0px 0px rgba(100, 100, 100, 0.1);
+}
+
+#app h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid #ccc;
+}
+
+#app span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-bottom: 0.7rem;
+  margin-top: 0.2rem;
+}
+
+#app .form {
+  margin: 2rem 0 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#app .form input,
+#app .form button {
+  font-size: 1.2rem;
+  padding: .4rem .8rem;
+  outline: none;
+  border: none;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#app .form input {
+  width: 60%;
+}
+
+#app .form button {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#app .form button:hover {
+  background: #333;
+  border-color: #333;
+}
+
+#app .form button:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#app .list {
+  margin: 3rem 0;
+}
+
+#app .list li {
+  margin: 0 -3rem 4px;
+  padding: 1.1rem 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#app .list li .content {
+  max-width: 70%;
+}
+
+#app .list li .content h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+#app .list li .content h3.done {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+#app .list li .content input {
+  font-size: 1.1rem;
+  padding: 0.1rem;
+  display: none;
+}
+
+#app .list li .content.editing h3 {
+  display: none;
+}
+
+#app .list li .content.editing input {
+  display: block;
+}
+
+#app .list li .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#app .list li .action button {
+  outline: none;
+  border: none;
+  background: transparent;
+  margin: 0 0.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: -0.4rem;
+  cursor: pointer;
+}
+
+#app .list li .action button:first-child {
+  -webkit-transform: translateY(2%) scale(1.05);
+          transform: translateY(2%) scale(1.05);
+}
+
+#app .list li .action button:last-child {
+  -webkit-transform: translateY(-1%) scale(1.05);
+          transform: translateY(-1%) scale(1.05);
+}
+/*# sourceMappingURL=style.css.map */

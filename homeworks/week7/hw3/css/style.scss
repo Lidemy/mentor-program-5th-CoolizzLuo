@@ -1,0 +1,123 @@
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,500,700,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+html, body {
+	background:#f7f1f1;
+	font-size: 1.1rem;
+	font-family:'Quicksand', sans-serif;
+  box-sizing: border-box;
+}
+
+#app {
+  margin:4rem auto;
+	padding:2rem 3rem 3rem;
+	max-width:500px;
+	background: #6a89cc;
+	color:#FFF;
+	box-shadow:20px -20px 0px 0px rgba(100,100,100,.1);
+  h1 {
+    font-size:2.6rem;
+    font-weight: 700;
+    letter-spacing:0.1rem;
+    margin-bottom: 0.6rem;
+    border-bottom:1px solid #ccc; 
+  }
+  span {
+    display:block;
+    font-size:0.8rem;
+    font-weight: 300;
+    margin-bottom:0.7rem;
+    margin-top:0.2rem;   
+  }
+  .form {
+    margin: 2rem 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    input,
+    button {
+      font-size: 1.2rem;
+      padding: .4rem .8rem;
+      outline: none;
+      border: none;
+      flex-grow: 1;
+    }
+    input {
+      width: 60%;
+    }
+    button {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      &:hover {
+        background: #333;
+        border-color: #333;
+      }
+      &:active {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .list {
+    margin: 3rem 0;
+    li {
+      margin:0 -3rem 4px;
+      padding:1.1rem 3rem;
+      background:rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .content {
+        max-width: 70%;
+        h3 {
+          font-size: 1.3rem;
+          font-weight: 500;
+          &.done {
+            opacity: 0.4;
+            text-decoration: line-through;
+          }
+        }
+        input {
+          font-size: 1.1rem;
+          padding: 0.1rem;
+          display: none;
+        }
+        &.editing {
+          h3 {
+            display: none;
+          }
+          input {
+            display: block;
+          }
+        }
+      }
+      .action {
+        display: flex;
+        align-items: center;
+        button {
+          outline: none;
+          border: none;
+          background: transparent;
+          margin: 0 0.5rem;
+          color: #fff;
+          font-size: 1.5rem;
+          margin-top: -0.4rem;
+          cursor: pointer;
+          &:first-child {
+            transform: translateY(2%) scale(1.05);
+          }
+          &:last-child {
+            transform: translateY(-1%) scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}
