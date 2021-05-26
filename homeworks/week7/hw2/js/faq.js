@@ -6,6 +6,7 @@
 //   })
 // })
 
+// 2. 對 ul 下監聽, 透過事件委派, 並紀錄目前 active 的 element
 // let activeEl = null
 // document.querySelector('.qa-list').addEventListener('click', (e) => {
 //   let targetEl = null
@@ -19,6 +20,7 @@
 //   }
 // })
 
+// 3. 看完範例後，發現有 closest() 可以使用，讓程式碼看起來更精簡了
 let activeEl = null
 document.querySelector('.qa-list').addEventListener('click', (e) => {
   const targetEl = e.target.closest('li')

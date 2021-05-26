@@ -65,7 +65,7 @@ img {
   font-weight: 700;
 }
 
-.navbar > ul a:hover, .navbar > ul a:active {
+.navbar > ul a:hover, .navbar > ul a:active, .navbar > ul a.active {
   color: #fff;
   background: #ff7286;
 }

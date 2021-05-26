@@ -46,7 +46,8 @@ img {
       color: #111;
       font-weight: 700;
       &:hover,
-      &:active {
+      &:active,
+      &.active {
         color: #fff;
         background: #ff7286;
       }
