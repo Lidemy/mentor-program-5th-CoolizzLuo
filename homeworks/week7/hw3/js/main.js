@@ -2,7 +2,7 @@
   const formEl = document.querySelector('.form')
   const inputEl = document.querySelector('.form > input')
   const listEl = document.querySelector('.list')
-  const listLenEl = document.querySelector('.items-len > sapn')
+  const listLenEl = document.querySelector('.items-len > span')
   const filterEl = document.querySelector('.filter-btn')
 
   function escapeHtml(unsafe) {
