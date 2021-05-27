@@ -2,6 +2,7 @@
   const formEl = document.querySelector('.form')
   const inputEl = document.querySelector('.form > input')
   const listEl = document.querySelector('.list')
+  const listLenEl = document.querySelector('.items-len > sapn')
   const filterEl = document.querySelector('.filter-btn')
 
   function escapeHtml(unsafe) {
@@ -73,6 +74,7 @@
       }
     },
     filter(value) {
+      if (this.filterValue === value) return
       document.querySelector(`button[data-value='${value}']`).classList.add('active')
       document.querySelector(`button[data-value='${this.filterValue}']`).classList.remove('active')
       this.filterValue = value
@@ -102,6 +104,7 @@
           </li>
         `)
       , '')
+      listLenEl.textContent = temp.length
     },
     created() {
       this.render()
