@@ -69,6 +69,7 @@
       this.data = temp
     },
     remove(id) {
+      if (this.editing) return alert('Please complete edit !!!')
       if (window.confirm('Are you sure to delete the item ?')) {
         this.data = this.data.filter((item) => item.id !== id)
       }
@@ -91,15 +92,15 @@
       }
       listEl.innerHTML = temp.reduce((str, item) =>
         (str += `
-          <li>
+          <li data-id="${item.id}">
             <div class="content ${this.editing === item.id ? 'editing' : ''}">
               <h3 class="${item.complete ? 'done' : ''}">${item.content}</h3>
               <input type="text" value="${item.content}">
             </div>
             <div class="action">
-              <button><i class="fa fa-edit" data-action="edit" data-id="${item.id}"></i></button>
-              <button><i class="fa fa-${item.complete ? 'check-' : ''}square" data-action="change" data-id="${item.id}"></i></button>
-              <button><i class="fa fa-trash" data-action="remove" data-id="${item.id}"></i></button>
+              <button><i class="fa fa-edit" data-action="edit"></i></button>
+              <button><i class="fa fa-${item.complete ? 'check-' : ''}square" data-action="change"></i></button>
+              <button><i class="fa fa-trash" data-action="remove"></i></button>
             </div>
           </li>
         `)
@@ -111,14 +112,20 @@
       // bind add method to formEl
       formEl.addEventListener('submit', (e) => {
         e.preventDefault()
-        if (!inputEl.value.trim()) return alert('please input item')
+        if (!inputEl.value.trim()) {
+          alert('please input item')
+          inputEl.focus()
+          return
+        }
         this.add(escapeHtml(inputEl.value))
         formEl.reset()
       })
       // bind method to listEl
       listEl.addEventListener('click', (e) => {
-        if (e.target.dataset.id) {
-          const { id, action } = e.target.dataset
+        if (e.target.dataset.action) {
+          const { action } = e.target.dataset
+          const { id } = e.target.closest('li').dataset
+
           let value = null
           if (action === 'edit') {
             const closeLi = e.target.closest('li')
@@ -127,10 +134,16 @@
           this[action](Number(id), value)
         }
       })
+      listEl.addEventListener('keyup', (e) => {
+        if (e.keyCode !== 13) return
+
+        const { id } = e.target.closest('li').dataset
+        this.edit(Number(id), e.target.value)
+      })
       filterEl.addEventListener('click', (e) => {
-        if (e.target.nodeName === 'BUTTON') {
-          this.filter(e.target.dataset.value)
-        }
+        if (e.target.nodeName !== 'BUTTON') return
+
+        this.filter(e.target.dataset.value)
       })
     }
   }
