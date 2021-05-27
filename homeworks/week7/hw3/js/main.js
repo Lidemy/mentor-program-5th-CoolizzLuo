@@ -2,40 +2,36 @@
   const formEl = document.querySelector('.form')
   const inputEl = document.querySelector('.form > input')
   const listEl = document.querySelector('.list')
-  const originalData = [
-    {
-      id: 1,
-      content: 'Code a todo list',
-      complete: true
-    },
-    {
-      id: 2,
-      content: 'Learn JS',
-      complete: false
-    },
-    {
-      id: 3,
-      content: 'Sleep',
-      complete: false
-    },
-    {
-      id: 4,
-      content: 'Study CSS',
-      complete: true
-    },
-    {
-      id: 5,
-      content: 'Learn something else',
-      complete: false
-    }
-  ]
+  const filterEl = document.querySelector('.filter-btn')
+
+  function escapeHtml(unsafe) {
+    return unsafe
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;')
+  }
 
   const app = {
     el: document.querySelector('#app'),
-    _data: originalData || [],
+    _data: JSON.parse(localStorage.getItem('todo-data')) || [
+      {
+        id: 1,
+        content: 'Code a Todo list',
+        complete: true
+      },
+      {
+        id: 2,
+        content: 'Demo',
+        complete: false
+      }
+    ],
     editing: null,
+    filterValue: 'all',
     set data(value) {
       Array.isArray(value) ? (this._data = value) : this._data.push(value)
+      localStorage.setItem('todo-data', JSON.stringify(this.data))
       this.render()
     },
     get data() {
@@ -76,8 +72,22 @@
         this.data = this.data.filter((item) => item.id !== id)
       }
     },
+    filter(value) {
+      document.querySelector(`button[data-value='${value}']`).classList.add('active')
+      document.querySelector(`button[data-value='${this.filterValue}']`).classList.remove('active')
+      this.filterValue = value
+      this.render()
+    },
     render() {
-      listEl.innerHTML = this.data.reduce((str, item) =>
+      let temp = null
+      if (this.filterValue === 'done') {
+        temp = this.data.filter((item) => item.complete)
+      } else if (this.filterValue === 'todo') {
+        temp = this.data.filter((item) => !item.complete)
+      } else {
+        temp = this.data
+      }
+      listEl.innerHTML = temp.reduce((str, item) =>
         (str += `
           <li>
             <div class="content ${this.editing === item.id ? 'editing' : ''}">
@@ -99,7 +109,7 @@
       formEl.addEventListener('submit', (e) => {
         e.preventDefault()
         if (!inputEl.value.trim()) return alert('please input item')
-        this.add(inputEl.value)
+        this.add(escapeHtml(inputEl.value))
         formEl.reset()
       })
       // bind method to listEl
@@ -112,6 +122,11 @@
             value = closeLi.querySelector('.content > input').value.trim()
           }
           this[action](Number(id), value)
+        }
+      })
+      filterEl.addEventListener('click', (e) => {
+        if (e.target.nodeName === 'BUTTON') {
+          this.filter(e.target.dataset.value)
         }
       })
     }
