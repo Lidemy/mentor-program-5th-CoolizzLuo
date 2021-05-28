@@ -5,8 +5,229 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carousel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .wrap{
+      margin: 3rem auto 1rem;
+      position: relative;
+      width: 500px;
+      /* height: 400px; */
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 5000px;
+      height: 300px;
+      transition: all 1s .2s;
+    }
+
+    .content{
+      width: 500px;
+      height: 300px;
+      float: left;
+      font-size: 5rem;
+      line-height: 300px;
+      text-align: center;
+    }
+
+    .nav{
+      position: absolute;
+      width: 30px;
+      height: 50px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, .85);
+      border: 1px solid #111;
+      cursor: pointer;
+    }
+
+    .nav.prev{
+      left: 0;
+    }
+    .nav.next{
+      right: 0;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .nav.prev:after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 25px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #000;
+      transform: rotate(90deg);
+    }
+
+    .nav.next:after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 25px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #000;
+      transform: rotate(-90deg);
+    }
+
+    .small-pic {
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+    }
+    .small-pic li {
+      position: relative;
+      cursor: pointer;
+    }
+    .small-pic li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: #aaa;
+      opacity: .6;
+      z-index: 2;
+    }
+    .small-pic li.active::after {
+      opacity: 0;
+      transition: opacity 2s;
+    }
+    .small-pic img {
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .play-btn {
+      display: block;
+      padding: 8px 16px;
+      margin: 0 auto;
+      font-size: 20px;
+    }
+  </style>
 </head>
 <body>
-  
+  <div class="wrap">
+    <div class="container">
+      <div class="content" style="background: #f6e58d"><img src="./img/424-500x300.jpg" alt="pic"></div>
+      <div class="content" style="background: #dff9fb"><img src="./img/428-500x300.jpg" alt="pic"></div>
+      <div class="content" style="background: #ff7979"><img src="./img/457-500x300.jpg" alt="pic"></div>
+      <div class="content" style="background: #badc58"><img src="./img/511-500x300.jpg" alt="pic"></div>
+      <div class="content" style="background: #ffbe76"><img src="./img/892-500x300.jpg" alt="pic"></div>
+      <!-- <div class="content" style="background: #e056fd"><img src="https://picsum.photos/500/300?random=30" alt="pic"></div>
+      <div class="content" style="background: #4bcffa"><img src="https://picsum.photos/500/300?random=35" alt="pic"></div>
+      <div class="content" style="background: #95afc0"><img src="https://picsum.photos/500/300?random=40" alt="pic"></div>
+      <div class="content" style="background: #0be881"><img src="https://picsum.photos/500/300?random=45" alt="pic"></div>
+      <div class="content" style="background: #be2edd"><img src="https://picsum.photos/500/300?random=50" alt="pic"></div> -->
+    </div>
+    <ul class="small-pic">
+      <li class="active"><img src="./img/424-500x300.jpg" alt="pic"></li>
+      <li><img src="./img/428-500x300.jpg" alt="pic"></li>
+      <li><img src="./img/457-500x300.jpg" alt="pic"></li>
+      <li><img src="./img/511-500x300.jpg" alt="pic"></li>
+      <li><img src="./img/892-500x300.jpg" alt="pic"></li>
+      <!-- <li><img src="https://picsum.photos/500/300?random=30" alt="pic"></li>
+      <li><img src="https://picsum.photos/500/300?random=35" alt="pic"></li>
+      <li><img src="https://picsum.photos/500/300?random=40" alt="pic"></li>
+      <li><img src="https://picsum.photos/500/300?random=45" alt="pic"></li>
+      <li><img src="https://picsum.photos/500/300?random=50" alt="pic"></li> -->
+    </ul>
+    <div class="nav prev"></div>
+    <div class="nav next"></div>
+  </div>
+  <button class="play-btn">play</button>
+  <script>
+    const containerEl = document.querySelector('.container')
+    const prevEl = document.querySelector('.nav.prev')
+    const nextEl = document.querySelector('.nav.next')
+    const playBtn = document.querySelector('.play-btn')
+    const smallPicArr = document.querySelectorAll('.small-pic > li')
+
+    let index = 0;
+    let contentLen = document.querySelectorAll('.content').length
+    let timer;
+
+    (() => {
+      function autoPlay() {
+        playBtn.disabled = true
+        if(index >= contentLen) index = 0
+        console.log('index: ', index)
+        checkBtnShow()
+        rollPage(index++)
+        timer = setTimeout(autoPlay, 2500)
+      }
+
+      function rollPage(page) {
+        if (page >= contentLen) {
+          page = contentLen-1
+          index = contentLen-1
+        }
+        containerEl.style.left = (page * -500) + 'px'
+      }
+
+      function renderSmallPic(value) {
+        smallPicArr.forEach((li) => {
+          li.classList.remove('active')
+        })
+        if (value) return smallPicArr[value].classList.add('active')
+        smallPicArr[index - 1].classList.add('active')
+      }
+
+      function checkBtnShow() {
+        index <= 0 ? prevEl.classList.add('hide') : prevEl.classList.remove('hide')
+        index >= contentLen - 1 ? nextEl.classList.add('hide') : nextEl.classList.remove('hide')
+      }
+
+      prevEl.addEventListener('click', () => {
+        clearTimeout(timer)
+        console.log(containerEl.style.animationPlayState)
+        playBtn.disabled = false
+        rollPage(--index)
+        renderSmallPic()
+        checkBtnShow()
+      })
+      nextEl.addEventListener('click', () => {
+        clearTimeout(timer)
+        playBtn.disabled = false
+        rollPage(++index)
+        renderSmallPic();
+        checkBtnShow()
+      });
+
+      playBtn.addEventListener('click', autoPlay)
+
+      smallPicArr.forEach((smallPic, index) => {
+        smallPic.addEventListener('click', (e) => {
+          if(e.target.classList.contains('active')) return
+          clearTimeout(timer);
+          playBtn.disabled = false
+          rollPage(index)
+          renderSmallPic(index)
+          checkBtnShow()
+        })
+      })
+      
+      checkBtnShow()
+      autoPlay()
+
+    })()
+  </script>
 </body>
 </html>
