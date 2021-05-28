@@ -54,7 +54,7 @@
       if (window.confirm('Sure update item ?')) {
         const temp = [...this.data]
         const target = temp.find((item) => item.id === id)
-        target.content = value
+        target.content = escapeHtml(value)
         this.editing = null
         this.data = temp
       } else {
@@ -63,6 +63,7 @@
       }
     },
     change(id) {
+      if (this.editing) return alert('Please complete edit !!!')
       const temp = [...this.data]
       const target = temp.find((item) => item.id === id)
       target.complete = !target.complete
