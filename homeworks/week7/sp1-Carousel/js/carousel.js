@@ -11,6 +11,8 @@ let timer = null
 
 function rollPage(page) {
   if (page >= maxPage) page = maxPage - 1
+  if (page < 0) page = 0
+  if (!playBtn.disabled) currPage = page
   mainPic.style.left = `${page * -500}px`
 
   // handler btn show/hide
