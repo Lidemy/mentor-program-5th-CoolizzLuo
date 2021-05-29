@@ -140,6 +140,7 @@ body {
 #app .list .content h3 {
   font-size: 1.3rem;
   font-weight: 500;
+  word-break: break-all;
 }
 
 #app .list .content h3.done {
