@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Todo List
+      <span>Get things done, one item at a time.</span>
+    </h1>
+    <form class="form">
+      <input type="text">
+      <button>Add item</button>
+    </form>
+    <div class="filter-btn">
+      <button class="active" data-value="all">All</button>
+      <button data-value="done">Done</button>
+      <button data-value="todo">Todo</button>
+    </div>
+    <ul class="list">
+      <!-- <li>
+        <div class="content">
+          <h3>Code a todo list</h3>
+          <input type="text">
+        </div>
+        <div class="action">
+          <button><i class="fa fa-edit"></i></button>
+          <button><i class="fa fa-square"></i></button>
+          <button><i class="fa fa-trash"></i></button>
+        </div>
+      </li> -->
+    </ul>
+    <div class="items-len">total: <span>5</span></div>
+    <footer>
+      <span>&copy; copyright 2021 by <a href="mailto:duenzo1010@gmail.com">Enzo Luo</a></span>
+    </footer>
+  </div>
+  <script src="./js/main.js"></script>
+</body>
+</html>
