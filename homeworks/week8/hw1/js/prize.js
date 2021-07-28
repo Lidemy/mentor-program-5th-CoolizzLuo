@@ -7,18 +7,22 @@ const errorMsg = '系統不穩定，請再試一次'
 
 const prizeArr = {
   FIRST: {
+    title: 'FIRST',
     text: '恭喜你中頭獎了！日本東京來回雙人遊！',
     class: 'prize-first'
   },
   SECOND: {
+    title: 'SECOND',
     text: '二獎！90 吋電視一台！',
     class: 'prize-second'
   },
   THIRD: {
+    title: 'THIRD',
     text: '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！',
     class: 'prize-third'
   },
   NONE: {
+    title: 'NONE',
     text: '銘謝惠顧',
     class: 'prize-none'
   }
@@ -53,13 +57,9 @@ function getPrize() {
       state.loading = false
       state.prize = prizeArr[res.prize]
       console.log(state.prize)
-      // handler undefined obj key
       state.prize ? render() : errorHandler()
     })
-    .catch((err) => {
-      // handler code 500
-      console.log(err)
-    })
+    .catch((err) => console.log(err))
 }
 
 function render() {
@@ -92,6 +92,6 @@ function showStats() {
   alert(str)
 }
 
-document.querySelectorAll('.get-prize').forEach((el) => el.addEventListener('click', getPrize))
+document.querySelector('.get-prize').addEventListener('click', getPrize)
 document.querySelector('.go-back').addEventListener('click', goBackPrize)
 document.querySelector('.show-stats').addEventListener('click', showStats)
