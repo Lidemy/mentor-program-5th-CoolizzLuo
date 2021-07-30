@@ -45,6 +45,7 @@ const state = {
 }
 
 function errorHandler() {
+  statistics.error ? statistics.error++ : statistics.error = 1
   alert(errorMsg)
 }
 

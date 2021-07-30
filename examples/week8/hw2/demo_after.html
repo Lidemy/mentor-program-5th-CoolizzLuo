@@ -108,7 +108,7 @@
     }
 
     .stream__intro {
-      display: flex;
+      display: block;
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
@@ -117,8 +117,8 @@
     .stream__title {
       font-size: 20px;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
+      overflow: hidden;
       margin-bottom: 10px;
     }
 
@@ -164,7 +164,18 @@
     <h1>Loading...</h1>
     <h2>Top 20 popular live streams sorted by current viewers</h2>
     <section class="streams">
-      
+      <div class="stream">
+        <img src="https://static-cdn.jtvnw.net/previews-ttv/live_user_loud_coringa-640x360.jpg">
+        <div class="stream__info">
+          <div class="stream__avatar">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/371a4ddd-c4ef-418c-9f42-cfecda78187d-profile_image-300x300.png">
+          </div>
+          <div class="stream__intro">
+            <h3 class="stream__title">VALLEY - EM BUSCA DE TALENTOS</h3>
+            <p class="stream__channel">loud_coringa</p>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
   <script>
