@@ -79,6 +79,7 @@ main {
   color: #fff;
   background: #333;
   opacity: .9;
+  filter: brightness(.8);
   margin: .5rem;
   transition: all .2s;
   img {
@@ -119,6 +120,7 @@ main {
     transform: scale(1.07);
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
     opacity: 1;
+    filter: brightness(1.2);
   }
 }
 

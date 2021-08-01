@@ -104,6 +104,8 @@ main h1 {
   color: #fff;
   background: #333;
   opacity: .9;
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
   margin: .5rem;
   -webkit-transition: all .2s;
   transition: all .2s;
@@ -156,6 +158,8 @@ main h1 {
   -webkit-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
   opacity: 1;
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
 }
 
 .btn {
