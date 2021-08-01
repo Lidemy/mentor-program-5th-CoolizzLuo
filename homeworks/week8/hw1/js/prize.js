@@ -29,12 +29,8 @@ const prizeArr = {
 }
 
 const lsTool = {
-  load() {
-    return JSON.parse(window.localStorage.getItem('statistics'))
-  },
-  save(data) {
-    window.localStorage.setItem('statistics', JSON.stringify(data))
-  }
+  load: () => JSON.parse(window.localStorage.getItem('statistics')),
+  save: (data) => window.localStorage.setItem('statistics', JSON.stringify(data))
 }
 
 const statistics = lsTool.load() || { ALL: 0 }
@@ -45,7 +41,7 @@ const state = {
 }
 
 function errorHandler() {
-  statistics.error ? statistics.error++ : statistics.error = 1
+  statistics.Error ? statistics.Error++ : statistics.Error = 1
   alert(errorMsg)
 }
 

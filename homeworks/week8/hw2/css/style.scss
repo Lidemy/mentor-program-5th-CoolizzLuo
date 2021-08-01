@@ -5,6 +5,10 @@
   list-style: none;
 }
 
+body {
+  overflow: overlay;
+}
+
 a {
   text-decoration: none;
   color: #111;
@@ -12,6 +16,10 @@ a {
 
 img {
   vertical-align: middle;
+}
+
+.hide {
+  display: none;
 }
 
 .navbar {
@@ -73,9 +81,14 @@ main {
   opacity: .9;
   margin: .5rem;
   transition: all .2s;
-  cursor: pointer;
   img {
     width: 100%;
+  }
+  &.blank {
+    opacity: 0;
+  }
+  &.blank:hover {
+    opacity: 0;
   }
   .stream__info {
     display: flex;
@@ -109,8 +122,17 @@ main {
   }
 }
 
+.btn {
+  margin-top: 2rem;
+  text-align: center;
+  button {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+  }
+}
 
-@media(max-width: 1024px) {
+@media(max-width: 1300px) {
   .navbar {
     flex-direction: column;
     height: auto;

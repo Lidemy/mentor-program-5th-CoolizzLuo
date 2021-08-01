@@ -10,12 +10,20 @@ const STREAM_TEMPLATE = `
       </div>
       <div class="stream__intro">
         <h3 class="stream__title">$title</h3>
-        <p class="stream__channel">$name</p>
+        <p class="stream__channel">$name / $viewers viewers</p>
       </div>
     </div>
   </a>
   `
+const BASE_LIMIT = 20
+const state = {
+  game: undefined,
+  temp: '',
+  offset: 0
+}
 const navEl = document.querySelector('.navbar__nav')
+const loadBtn = document.querySelector('.load')
+const streamsEl = document.querySelector('.streams')
 
 function sendRequest(endPoint, callback) {
   const request = new XMLHttpRequest()
@@ -24,6 +32,7 @@ function sendRequest(endPoint, callback) {
   request.setRequestHeader('Client-ID', CLIENT_ID)
   request.onload = function() {
     if (this.status >= 200 && this.status < 400) {
+      console.log(JSON.parse(this.response))
       callback(JSON.parse(this.response))
     }
   }
@@ -37,26 +46,38 @@ function renderNav(data) {
 }
 
 function renderStream(streams) {
-  // console.log(streams)
-  const str = streams.streams.reduce((acc, stream) => {
-    const temp = STREAM_TEMPLATE
-      .replace('$url', stream.channel.url)
-      .replace('$preview', stream.preview.large)
-      .replace('$logo', stream.channel.logo)
-      .replace('$title', stream.channel.status)
-      .replace('$name', stream.channel.name)
-    return acc + temp
-  }, '')
-  document.querySelector('.streams').innerHTML = str
+  // 如果回傳陣列為 0 , 把載入更多的按鈕隱藏
+  streams.streams.length ? loadBtn.classList.remove('hide') : loadBtn.classList.add('hide')
+  const str = streams.streams.reduce((acc, stream) => acc + STREAM_TEMPLATE
+    .replace('$url', stream.channel.url)
+    .replace('$preview', stream.preview.large)
+    .replace('$logo', stream.channel.logo)
+    .replace('$title', stream.channel.status)
+    .replace('$name', stream.channel.name)
+    .replace('$viewers', stream.viewers), '')
+  state.offset ? (state.temp += str) : (state.temp = str)
+  streamsEl.innerHTML = state.temp
+  addBlankStream()
+}
+
+function addBlankStream() {
+  streamsEl.innerHTML += '<div class="stream blank"></div>'.repeat(3 - streamsEl.childElementCount % 3)
 }
 
 function selectGame(gameName) {
-  document.querySelector('h1').innerText = gameName
-  sendRequest(`/streams?game=${encodeURIComponent(gameName)}`, renderStream)
+  if (gameName === state.game) {
+    state.offset += BASE_LIMIT
+  } else {
+    document.querySelector('h1').innerText = gameName
+    state.game = gameName
+    state.offset = 0
+  }
+  sendRequest(`/streams?game=${encodeURIComponent(gameName)}&offset=${state.offset}&limit=${BASE_LIMIT}`, renderStream)
 }
 
 navEl.addEventListener('click', (e) => {
-  if (e.target.nodeName === 'LI') selectGame(e.target.textContent)
+  if (e.target.nodeName === 'LI' && e.target.textContent !== state.game) selectGame(e.target.textContent)
 })
+loadBtn.addEventListener('click', (e) => selectGame(state.game))
 
 sendRequest('/games/top?limit=5', renderNav)
