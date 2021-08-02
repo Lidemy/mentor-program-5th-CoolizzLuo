@@ -1,0 +1,560 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: '微軟正黑體', sans-serif;
+}
+
+body {
+  overflow: overlay;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.hide {
+  display: none !important;
+}
+
+.bg-success {
+  background: #a8e8e1;
+}
+
+.bg-warning {
+  background: #f9f9b5;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  -webkit-box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+          box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 5%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+          box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+}
+
+.navbar > .site-name a {
+  font-family: 'Questrial', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #489846;
+}
+
+.navbar > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar > ul a {
+  font-size: 18px;
+  padding: 14px 25px;
+  border-radius: 8px;
+  color: #111;
+  font-weight: 700;
+}
+
+.navbar > ul a:hover, .navbar > ul a:active, .navbar > ul a.active {
+  color: #fff;
+  background: #ff7286;
+}
+
+.navbar li {
+  margin: 0 5px;
+}
+
+section {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+section h2 {
+  position: relative;
+  padding: 40px 0;
+  font-size: 36px;
+}
+
+section h2::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 38px;
+  background: #a3dea2;
+  -webkit-transform: translateX(-200%);
+          transform: translateX(-200%);
+}
+
+section .content > p {
+  padding: 0 10px;
+}
+
+section .content > p ~ p {
+  margin-top: 21px;
+}
+
+section.banner {
+  position: relative;
+  height: 580px;
+  background: url(../img/bg.jpg) center/cover no-repeat;
+}
+
+section.banner::after {
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.25);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+section.banner h1 {
+  font-size: 60px;
+  color: #fff;
+  z-index: 2;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+section .btn-group {
+  margin: 65px 0;
+}
+
+section .btn-group > a {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 36px;
+  color: #3e613d;
+  font-weight: 600;
+  padding: 65px 80px;
+  border-radius: 10px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+section .btn-group > a:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+section .pic-wall {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+section .pic-wall img {
+  width: 100%;
+}
+
+section .comment-wall {
+  padding: 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section .comment-wall .person {
+  position: relative;
+  margin: 50px 20px;
+  padding: 75px 24px 35px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid #c7e5ec;
+  border-radius: 5px;
+}
+
+section .comment-wall .person .avatar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+section .comment-wall .person .pic {
+  width: 106px;
+  height: 106px;
+  border: solid 1px #c1c1c1;
+  border-radius: 50%;
+}
+
+section .comment-wall .person .pic img {
+  width: 100%;
+  height: auto;
+}
+
+section .comment-wall .person .comment {
+  line-height: 2rem;
+  word-break: break-all;
+}
+
+section iframe.map {
+  width: 100%;
+  max-width: 1730px;
+}
+
+section .qa-list {
+  max-width: 750px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+section .qa-list li {
+  padding: 25px 18px;
+  border-bottom: 1.5px solid #a6e2c0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+section .qa-list li:hover {
+  border-radius: 2px;
+  background: #eee;
+}
+
+section .qa-list li .question {
+  font-size: 24px;
+  color: #70b282;
+  margin-right: 20px;
+}
+
+section .qa-list li .content {
+  width: 100%;
+  position: relative;
+}
+
+section .qa-list li .content h3 {
+  font-size: 18px;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+
+section .qa-list li .content p {
+  padding: 0;
+  line-height: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+
+section .qa-list li.active .content p {
+  position: relative;
+  opacity: 1;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+footer {
+  width: 100%;
+}
+
+footer .info {
+  background: #e8efee;
+  padding: 45px 105px;
+  position: relative;
+}
+
+footer .info p ~ p {
+  margin-top: 16px;
+}
+
+footer .logo {
+  position: absolute;
+  right: 110px;
+  top: 35px;
+  font-family: 'Questrial', sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: #489846;
+  text-align: right;
+}
+
+footer .logo > p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #111;
+}
+
+footer .copyright {
+  background: #35564b;
+  color: #fff;
+  padding: 15px 0;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .navbar ul {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navbar ul {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .navbar ul li {
+    width: 100%;
+    font-size: 30px;
+    margin: 10px 0;
+    border-radius: 0px;
+    color: #111;
+    font-weight: 700;
+  }
+  .navbar ul a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+  }
+  section .btn-group > a {
+    margin: 15px 0;
+  }
+  section .pic-wall {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  section .comment-wall {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .comment-wall {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .logo {
+    display: none;
+    position: relative;
+    right: 0px;
+    top: 0px;
+    margin-bottom: 50px;
+  }
+  main.prize {
+    height: 800px;
+    padding: 2rem .4rem;
+  }
+}
+
+.prize {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  height: 758px;
+  padding: 3rem 0;
+  background-image: url(../img/bg/games-bn.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.prize .content {
+  background: #fff;
+  z-index: 2;
+  padding: 40px 20px;
+  border-radius: 16px;
+  max-width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.prize .content h1 {
+  font-size: 1.5rem;
+  color: #5ec1b6;
+  margin-bottom: 2rem;
+}
+
+.prize .content li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem .5rem 1.5rem;
+  border-bottom: 1px dashed #cdcdcd;
+}
+
+.prize .content h3 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  width: 100px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.prize .content p {
+  word-break: normal;
+  letter-spacing: 3px;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.prize .content .btn {
+  margin: 2rem 0 0;
+}
+
+.prize .result {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.prize .result h2 {
+  font-size: 2.3rem;
+  margin-bottom: 3rem;
+  padding: 1.2rem 2rem;
+  background: #ccc;
+  border: 3px solid #e62a45;
+}
+
+.prize .result .btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.prize .btn {
+  font-size: 20px;
+  text-shadow: 1px 1px 5px #333;
+  color: #fff;
+  background: #e62a45;
+  border-radius: 8px;
+  width: 400px;
+  height: 55px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.prize .btn:hover {
+  color: #fff;
+  background: #ff7286;
+}
+
+.prize .btn:active {
+  -webkit-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+}
+
+.prize .btn + .btn {
+  margin: .5rem 0;
+  background: #333;
+}
+
+.prize.prize-first {
+  background-image: url(../img/prize/first-prize.jpg);
+}
+
+.prize.prize-second {
+  background-image: url(../img/prize/second-prize.jpg);
+}
+
+.prize.prize-third {
+  background-image: url(../img/prize/third-prize.jpg);
+}
+
+.prize.prize-none {
+  background: #666;
+}
+
+.prize.prize-none h2 {
+  color: #fff;
+  background: none;
+  border: none;
+}
+
+.prize.prize-none::after {
+  background: none;
+}
+
+.prize::after {
+  content: '';
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
