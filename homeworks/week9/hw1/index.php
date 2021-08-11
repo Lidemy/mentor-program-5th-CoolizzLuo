@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require_once('dao/comments.php');
+	require_once('utils.php');
 	
 	$username = NULL;
 	if (!empty($_SESSION['username'])) {
@@ -59,10 +60,10 @@
 				<div class="card__avatar"></div>
 				<div class="card__body">
 					<div class="card__info">
-						<span class="card__author"><?= $row['nickname'] ?></span>
+						<span class="card__author"><?= escape($row['nickname']) ?></span>
 						<span class="card__time"><?= $row['created_at'] ?></span>
 					</div>
-					<p class="card__content"><?= $row['content'] ?></p>
+					<p class="card__content"><?= escape($row['content']) ?></p>
 				</div>
 			</div>
 			<?php } ?>

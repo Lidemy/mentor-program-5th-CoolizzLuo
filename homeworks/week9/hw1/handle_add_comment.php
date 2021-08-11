@@ -7,7 +7,7 @@
   $nickname = $user['nickname'];
   $content = $_POST['content'];
 
-  if ($nickname || $content ) {
+  if (!$nickname) || !$content) {
     header('Location: index.php?errCode=1');
   }
 
