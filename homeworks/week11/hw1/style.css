@@ -1,0 +1,166 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #f7f7f7;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+.warning {
+	background: #ffc4c6;
+	color: #a20606;
+	padding: 10px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.error {
+	color: #a20606;
+}
+
+.hide {
+	display: none;
+}
+
+.board {
+	background: #fff;
+	width: 100%;
+	max-width: 700px;
+	margin: 20px auto;
+	padding: 10px 30px;
+	box-shadow: 1px 1px 3px #e8e8e8;
+	border-radius: 5px;
+}
+
+.board__btn {
+	padding: 10px 30px;
+	border: 1px solid #c2dffb;
+	border-radius: 5px;
+	font-size: 16px;
+	color: #000;
+	background: #fff;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.board__nickname-form {
+	margin-top: 20px;
+}
+
+.board__new-comment-form textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #c2dffb;
+}
+
+.board__nickname {
+	margin-bottom: 10px;
+}
+
+.board__nickname input {
+	border: 1px solid #c2dffb;
+	padding: 5px;
+}
+
+.board__submit-btn {
+	padding: 10px;
+	border: 1px solid #c2dffb;
+	border-radius: 5px;
+	width: 100px;
+	font-size: 16px;
+	color: #583c63;
+	background: #fff;
+}
+
+.board__hr {
+	margin: 10px auto;
+	height: 2px;
+	background: #e8e8e8;
+	max-width: 95%;
+}
+
+.card {
+	margin: 20px 0;
+	min-height: 70px;
+	display: flex;
+}
+
+.card__avatar {
+	min-width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #e4f0fb;
+}
+
+.card__body {
+	margin-left: 10px;
+}
+
+.card__content {
+	margin-top: 8px;
+	max-width: 100%;
+	word-break: break-word;
+	white-space: pre-line;
+}
+
+.card__author {
+	color: #5c9edc;
+	font-weight: 700;
+}
+
+.card__time {
+	color: #a0a0a0;
+}
+
+.page-info {
+	text-align: center;
+}
+
+.paginator {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.paginator a {
+	text-decoration: none;
+	color: #5c9dec;
+	border: 1px solid #5c9dec;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 0 6px;
+	
+}
+
+.paginator a:hover {
+	background: #5c9dec;
+	color: #fff;
+	transition: all .3s;
+}
+
+.board__user-table {
+	border-collapse: collapse;
+	border-top: 2px solid #333;
+	border-left: 2px solid #333;
+	width: 100%;
+	text-align: center;
+}
+
+.board__user-table th, .board__user-table td {
+	border-right: 2px solid #333;
+	border-bottom: 2px solid #333;
+	padding: 6px 10px;
+}
+
+.board__user-table tr:nth-child(even) {
+	background: #ccc;
+}
+
+.board__user-table tr:nth-child(n+2):hover {
+	background: #999;
+	color: #eee;
+}
