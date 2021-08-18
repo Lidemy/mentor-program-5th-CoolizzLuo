@@ -237,8 +237,9 @@
           }
           this[action](Number(id), value)
         } else if (e.target.nodeName === 'H3') {
+          console.log(e.target.nodeName)
           const { id } = e.target.closest('li').dataset
-          this.data = this.data.find((todo) => todo.id === id)
+          this.change(Number(id))
         }
       })
       listEl.addEventListener('keyup', (e) => {
