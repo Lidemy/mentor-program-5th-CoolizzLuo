@@ -1,7 +1,7 @@
 (() => {
   const SITE_KEY = 'coolizz'
   // const API_URL = 'http://localhost/week12/board-api'
-  const API_URL = 'https://mentor-program.co/mtr04group4/enzo/week12/board-api'
+  const API_URL = 'http://mentor-program.co/mtr04group4/enzo/week12/board-api'
   const CARD_TEMPLATE = `
     <div class="card">
       <div class="card-body">

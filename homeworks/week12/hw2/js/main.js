@@ -7,7 +7,7 @@
   const clearBtn = document.querySelector('.clear-btn')
   const saveBtn = document.querySelector('.save-btn')
   // const API_URL = 'http://localhost/week12/todo-api'
-  const API_URL = 'https://mentor-program.co/mtr04group4/enzo/week12/todo-api'
+  const API_URL = 'http://mentor-program.co/mtr04group4/enzo/week12/todo-api'
 
   function escapeHtml(unsafe) {
     return unsafe
@@ -237,7 +237,6 @@
           }
           this[action](Number(id), value)
         } else if (e.target.nodeName === 'H3') {
-          console.log(e.target.nodeName)
           const { id } = e.target.closest('li').dataset
           this.change(Number(id))
         }
