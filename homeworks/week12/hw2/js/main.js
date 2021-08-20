@@ -202,10 +202,7 @@
     },
     load() {
       this.id = window.prompt('Please input your ID!')
-      APIUtils.load((res) => {
-        const todo = JSON.parse(res.todo)
-        todo ? (this.data = todo) : (this.data = [])
-      }, this.id)
+      window.location.href = `index.html?id=${this.id}`
     },
     save() {
       !this.id ? APIUtils.save(this.data) : APIUtils.update(this.data, this.id)
