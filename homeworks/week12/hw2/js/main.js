@@ -201,7 +201,9 @@
       this.data = this.data.filter((todo) => !todo.complete)
     },
     load() {
-      this.id = window.prompt('Please input your ID!')
+      const tempId = window.prompt('Please input your ID!')
+      if (!tempId || this.id === tempId) return
+      this.id = tempId
       window.location.href = `index.html?id=${this.id}`
     },
     save() {
