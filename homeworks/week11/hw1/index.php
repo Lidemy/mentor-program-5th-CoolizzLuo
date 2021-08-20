@@ -40,7 +40,7 @@
 				</div>
 				<input class="board__submit-btn" type="submit">
 			</form>
-			<h3>你好！ <?= $user['nickname'] ?></h3>
+			<h3>你好！ <?= escape($user['nickname']) ?></h3>
 			<?php } else  { ?>
 			<a class="board__btn" href="register.php">註冊</a>
 			<a class="board__btn" href="login.php">登入</a>
@@ -82,7 +82,7 @@
 				<div class="card__body">
 					<div class="card__info">
 						<span class="card__author"><?= escape($row['nickname']) ?> (@<?= escape($row['username']) ?>)</span>
-						<span class="card__time"><?= escape($row['created_at']) ?></span>
+						<span class="card__time"><?= $row['created_at'] ?></span>
 						<?php if (editPermission($user, $row)) { ?>
 						<a href="update_comment.php?id=<?= $row['id'] ?>">編輯</a>
 						<a href="delete_comment.php?id=<?= $row['id'] ?>">刪除</a>
