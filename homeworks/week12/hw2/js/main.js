@@ -5,6 +5,7 @@
   const listLenEl = document.querySelector('.items-len > span')
   const filterBtn = document.querySelector('.filter-btn')
   const clearBtn = document.querySelector('.clear-btn')
+  const loadBtn = document.querySelector('.load-btn')
   const saveBtn = document.querySelector('.save-btn')
   // const API_URL = 'http://localhost/week12/todo-api'
   const API_URL = 'http://mentor-program.co/mtr04group4/enzo/week12/todo-api'
@@ -64,7 +65,7 @@
           handleLoad(false)
           if (res.ok) {
             handleMsg(res.message, `your id is ${res.id}`)
-            window.location.search = `?id=${res.id}`
+            window.location.href = `index.html?id=${res.id}`
           } else {
             handleMsg(res.message)
           }
@@ -199,6 +200,13 @@
       if (!window.confirm('Are you sure clear?')) return
       this.data = this.data.filter((todo) => !todo.complete)
     },
+    load() {
+      this.id = window.prompt('Please input your ID!')
+      APIUtils.load((res) => {
+        const todo = JSON.parse(res.todo)
+        todo ? (this.data = todo) : (this.data = [])
+      }, this.id)
+    },
     save() {
       !this.id ? APIUtils.save(this.data) : APIUtils.update(this.data, this.id)
     },
@@ -252,6 +260,7 @@
         this.filter(e.target.dataset.value)
       })
       clearBtn.addEventListener('click', (e) => this.clear())
+      loadBtn.addEventListener('click', (e) => this.load())
       saveBtn.addEventListener('click', (e) => this.save())
     }
   }
