@@ -28,12 +28,12 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .navbar__site {
+  &__site {
     font-size: 2.5rem;
     font-weight: 700;
     text-shadow: 1px 1px #333;
   }
-  .navbar__nav {
+  &__nav {
     display: flex;
     li {
       line-height: 80px;
@@ -91,11 +91,11 @@ main {
   &.blank:hover {
     opacity: 0;
   }
-  .stream__info {
+  &__info {
     display: flex;
     padding: .8rem .5rem .5rem;
   }
-  .stream__avatar {
+  &__avatar {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -103,12 +103,12 @@ main {
     margin-right: 12px;
     min-width: 64px;
   }
-  .stream__intro {
+  &__intro {
     display: block;
     overflow: hidden;
   }
   
-  .stream__title {
+  &__title {
     font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
@@ -140,11 +140,11 @@ main {
     height: auto;
     padding-right: 0;
     padding-left: 0;
-    .navbar__site {
+    &__site {
       font-size: 3rem;
       margin: 2rem 0;
     }
-    .navbar__nav {
+    &__nav {
       width: 100%;
       flex-direction: column;
       line-height: auto;

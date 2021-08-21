@@ -26,17 +26,29 @@ const loadBtn = document.querySelector('.load')
 const streamsEl = document.querySelector('.streams')
 
 function sendRequest(endPoint, callback) {
-  const request = new XMLHttpRequest()
-  request.open('GET', `${API_URL}${endPoint}`, true)
-  request.setRequestHeader('Accept', ACCEPT)
-  request.setRequestHeader('Client-ID', CLIENT_ID)
-  request.onload = function() {
-    if (this.status >= 200 && this.status < 400) {
-      console.log(JSON.parse(this.response))
-      callback(JSON.parse(this.response))
+  // const request = new XMLHttpRequest()
+  // request.open('GET', `${API_URL}${endPoint}`, true)
+  // request.setRequestHeader('Accept', ACCEPT)
+  // request.setRequestHeader('Client-ID', CLIENT_ID)
+  // request.onload = function() {
+  //   if (this.status >= 200 && this.status < 400) {
+  //     console.log(JSON.parse(this.response))
+  //     callback(JSON.parse(this.response))
+  //   }
+  // }
+  // request.send()
+
+  const option = {
+    headers: {
+      Accept: ACCEPT,
+      'Client-ID': CLIENT_ID
     }
   }
-  request.send()
+
+  fetch(`${API_URL}${endPoint}`, option)
+    .then((res) => res.json())
+    .then((res) => callback(res))
+    .catch((err) => console.log(err))
 }
 
 function renderNav(data) {

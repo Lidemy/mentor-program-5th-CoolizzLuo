@@ -36,19 +36,19 @@ img {
           align-items: center;
 }
 
-.navbar .navbar__site {
+.navbar__site {
   font-size: 2.5rem;
   font-weight: 700;
   text-shadow: 1px 1px #333;
 }
 
-.navbar .navbar__nav {
+.navbar__nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.navbar .navbar__nav li {
+.navbar__nav li {
   line-height: 80px;
   font-size: 1.1rem;
   padding: 0 .6rem;
@@ -57,7 +57,7 @@ img {
   transition: all .2s;
 }
 
-.navbar .navbar__nav li:hover {
+.navbar__nav li:hover {
   color: #fff;
   background: #666;
 }
@@ -123,14 +123,14 @@ main h1 {
   opacity: 0;
 }
 
-.stream .stream__info {
+.stream__info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: .8rem .5rem .5rem;
 }
 
-.stream .stream__avatar {
+.stream__avatar {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -139,12 +139,12 @@ main h1 {
   min-width: 64px;
 }
 
-.stream .stream__intro {
+.stream__intro {
   display: block;
   overflow: hidden;
 }
 
-.stream .stream__title {
+.stream__title {
   font-size: 20px;
   white-space: nowrap;
   overflow: hidden;
@@ -183,11 +183,11 @@ main h1 {
     padding-right: 0;
     padding-left: 0;
   }
-  .navbar .navbar__site {
+  .navbar__site {
     font-size: 3rem;
     margin: 2rem 0;
   }
-  .navbar .navbar__nav {
+  .navbar__nav {
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -196,7 +196,7 @@ main h1 {
     line-height: auto;
     text-align: center;
   }
-  .navbar .navbar__nav li {
+  .navbar__nav li {
     font-size: 1.6rem;
   }
 }

@@ -143,8 +143,8 @@
 
 .post__action {
   padding: 3px 12px;
-  border: solid 1px #a8a8a8;
-  color: #a8a8a8;
+  border: solid 1px #9a9a9a;
+  color: #666;
   text-decoration: none;
   font-size: 14px;
 }
@@ -168,15 +168,15 @@
 .btn-read-more {
   display: inline-block;
   padding: 12px 16px;
-  border: solid 1px #737373;
-  color: #737373;
+  border: solid 1px #787878;
+  color: #787878;
   margin-top: 36px;
   text-decoration: none;
 }
 
 .login-wrapper {
   margin: 0 auto;
-  border: solid 1px #000000;
+  border: solid 1px #000;
   width: 527px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -190,7 +190,7 @@
           align-items: center;
   padding: 62px 72px;
   margin-top: -30px;
-  background: white;
+  background: #fff;
 }
 
 .login-wrapper form {
@@ -210,7 +210,7 @@
   height: 56px;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#000000), to(#434343));
   background-image: linear-gradient(to top, #000000, #434343);
-  color: white;
+  color: #fff;
   margin-top: 73px;
 }
 
@@ -255,8 +255,8 @@
 .edit-post__btn {
   display: inline-block;
   padding: 10px 39px;
-  border: solid 1px #737373;
-  color: #737373;
+  border: solid 1px #787878cc;
+  color: #787878cc;
   cursor: pointer;
   margin-top: 25px;
 }
@@ -272,7 +272,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #9a9a9a;
+  border-bottom: 1px solid #787878cc;
   font-size: 14px;
   width: 920px;
 }
@@ -293,13 +293,13 @@
 }
 
 .admin-post__created-at {
-  color: #8f8f8f;
+  color: #787878;
 }
 
 .admin-post__btn {
   padding: 4px 8px;
-  border: 1px solid #a8a8a8;
-  color: #616161;
+  border: 1px solid #787878;
+  color: #666;
   cursor: pointer;
   margin-left: 8px;
   text-decoration: none;
@@ -311,19 +311,19 @@
 
 .admin-post__btn:hover {
   color: #fff;
-  background: #616161;
+  background: #666;
 }
 
 .error {
-  color: #da3131;
+  color: #fc9da2;
   text-align: center;
   font-weight: 700;
 }
 
 footer {
   padding: 10px 0px;
-  background-color: #323232;
+  background-color: #333333;
   font-size: 14px;
-  color: white;
+  color: #fff;
   text-align: center;
 }
