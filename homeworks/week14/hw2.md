@@ -35,7 +35,16 @@
     * `cd /var/www/html`
     * `ln -s /usr/share/phpmyadmin`
 
-
+### 一些問題
+1. mySQL 安全權限設定
+`sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf`
+進入 Vim 編輯器將 bind-address = 127.0.0.1 那行的最前面加上 # 或 將 127.0.0.1 改成 0.0.0.0
+`sudo service mysql restart`
+2. mySQL 使用者權限
+上次使用 `sudo mysql_secure_installation` 之後需要登入才能改變 mySQL 權限設定
+`mysql -u root -p` 用 root mySQL 使用者登入 mySQL
+`SELECT user,authentication_string,plugin,host FROM mysql.user` 查看 mySQL 有那些使用者帳號
+`GRANT ALL PRIVILEGES ON *.* TO 'mySQL 使用者帳號'@'%' IDENTIFIED BY 'mySQL 使用者密碼';` 選擇你想要遠端連接的使用者帳號，更改 host 欄位中的 localhost 為 %
 
 ## 安全性設定
 ### 1. 關閉 Auto Index
