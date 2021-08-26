@@ -4,3 +4,4 @@ _conn.php
 .DS_STORE
 .eslintcache
 /.vscode
+/homeworks/week12/hw2/todo-api/dao/_conn.php
