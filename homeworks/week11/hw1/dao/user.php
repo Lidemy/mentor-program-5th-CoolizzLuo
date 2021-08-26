@@ -74,6 +74,6 @@
   function isUser($username, $password) {
     $row = getUserByUsername($username);
     if (!$row) return FALSE;
-    return password_verify($password, $row['password']) ? TRUE : FALSE;
+    return password_verify($password, $row['password']);
   }
 ?>

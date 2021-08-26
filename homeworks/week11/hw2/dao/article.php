@@ -4,17 +4,9 @@
   function getAllArticle() {
     global $conn;
 
-    // $item_per_page = 5;
-    // $offset = ($page - 1) * $item_per_page;
-
     $sql = 'SELECT * FROM enzo_blog_article WHERE is_deleted is NULL ORDER BY id DESC';
-    $sql1 = 'SELECT C.id as id, C.content as content, C.created_at as created_at, U.nickname as nickname, U.username as username ' . 
-          'FROM enzo_blog_article AS C LEFT JOIN users AS U ON C.username = U.username ' . 
-          'WHERE C.is_deleted is NULL' .
-          'ORDER BY C.id DESC LIMIT ? OFFSET ?';
     $stmt = $conn->prepare($sql);
 
-    // $stmt->bind_param('ii', $item_per_page, $offset);
     $result = $stmt->execute();
     if (!$result) {
       die('Error: ' . $conn->error);
