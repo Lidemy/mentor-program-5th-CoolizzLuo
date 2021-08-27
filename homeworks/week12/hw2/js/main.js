@@ -7,7 +7,6 @@
   const clearBtn = document.querySelector('.clear-btn')
   const loadBtn = document.querySelector('.load-btn')
   const saveBtn = document.querySelector('.save-btn')
-  // const API_URL = 'http://localhost/week12/todo-api'
   const API_URL = 'http://mentor-program.co/mtr04group4/enzo/week12/todo-api'
 
   function escapeHtml(unsafe) {
@@ -177,16 +176,16 @@
       } else {
         temp = this.data
       }
-      listEl.innerHTML = temp.reduce((str, item) =>
+      listEl.innerHTML = temp.reduce((str, { id, complete, content }) =>
         (str += `
-          <li data-id="${item.id}" class="${item.complete ? 'done' : ''}">
-            <div class="content ${this.editing === item.id ? 'editing' : ''}">
-              <h3>${escapeHtml(item.content)}</h3>
-              <input type="text" value="${escapeHtml(item.content)}">
+          <li data-id="${id}" class="${complete ? 'done' : ''}">
+            <div class="content ${this.editing === id ? 'editing' : ''}">
+              <h3>${escapeHtml(content)}</h3>
+              <input type="text" value="${escapeHtml(content)}">
             </div>
             <div class="action">
               <button><i class="fa fa-edit" data-action="edit"></i></button>
-              <button><i class="fa fa-${item.complete ? 'check-' : ''}square" data-action="change"></i></button>
+              <button><i class="fa fa-${complete ? 'check-' : ''}square" data-action="change"></i></button>
               <button><i class="fa fa-trash" data-action="remove"></i></button>
             </div>
           </li>
@@ -216,7 +215,7 @@
 
       APIUtils.load((res) => {
         const todo = JSON.parse(res.todo)
-        todo ? (this.data = todo) : (this.data = [])
+        this.data = todo || []
       }, this.id)
     },
     // mount EventListener to HTML Element
