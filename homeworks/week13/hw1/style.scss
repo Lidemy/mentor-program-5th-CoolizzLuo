@@ -1,0 +1,246 @@
+@import '_variables';
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  height: 80px;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0px 12px;
+  }
+  &__site-name {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  &__site-name a {
+    text-decoration: none;
+    color: $primary;
+  }
+  &__list {
+    display: flex;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: space-between;
+  }
+  &__list > div {
+    display: flex;
+  }
+  &__list li {
+    margin-left: 21px;
+  }
+  &__list a {
+    display: block;
+    text-decoration: none;
+    color: $gray-light;
+    font-size: 16px;
+    padding: 12px;
+    &:hover {
+      background: $gray;
+      color: $white;
+    }
+  }
+}
+
+.banner {
+  background-image: linear-gradient(to top, #000000, #434343);
+  height: 240px;
+  color: $white-01;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  &__wrapper > div {
+    margin-top: 26px;
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0;
+  }
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 138px;
+  min-height: calc(100vh - 350px);
+}
+
+.posts, .container {
+  background: $white;
+  padding: 6px;
+  display: inline-flex;
+  margin: 0 auto;
+  margin-top: -30px;
+  flex-direction: column;
+}
+
+.post {
+  width: 900px;
+  padding: 30px;
+  border: solid 1px $border;
+  &__header {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__action {
+    padding: 3px 12px;
+    border: solid 1px $border;
+    color: $gray;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  &__info {
+    margin-top: 19px;
+    padding: 12px 22px;
+    background: $white-01;
+  }
+  &__content {
+    margin-top: 17px;
+    white-space: pre-line;
+    line-height: 1.5em;
+  }
+  & + .post {
+    margin-top: 24px;
+  }
+}
+
+.btn-read-more {
+  display: inline-block;
+  padding: 12px 16px;
+  border: solid 1px $gray-light;
+  color: $gray-light;
+  margin-top: 36px;
+  text-decoration: none;
+}
+
+.login-wrapper {
+  margin: 0 auto;
+  border: solid 1px $black;
+  width: 527px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 62px 72px;
+  margin-top: -30px;
+  background: $white;
+  form {
+    width: 100%;
+  }
+  input {
+    width: 100%;
+  }
+}
+
+.input__field {
+  margin-top: 16px;
+  height: 40px;
+  input[type=submit] {
+    height: 56px;
+    background-image: linear-gradient(to top, #000000, #434343);
+    color: $white;
+    margin-top: 73px;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: normal;
+  }
+}
+
+
+.input__wrapper + .input__wrapper {
+  margin-top: 23px;
+}
+
+.input__label {
+  font-size: 14px;
+  margin-left: 21px;
+}
+
+.edit-post {
+  width: 900px;
+  padding: 30px;
+  border: solid 1px $border;
+  &__title {
+    font-size: 20px;
+  }
+  &__input-wrapper {
+    width: 100%;
+    margin-top: 28px;
+  }
+  &__input-wrapper input, & __input-wrapper textarea {
+    width: 100%;
+    padding: 6px;
+  }
+  &__btn-wrapper {
+    text-align: right;
+  }
+  &__btn {
+    display: inline-block;
+    padding: 10px 39px;
+    border: solid 1px $gray-dark;
+    color: $gray-dark;
+    cursor: pointer;
+    margin-top: 25px;
+  }
+}
+
+.admin-post {
+  padding: 24px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $gray-dark;
+  font-size: 14px;
+  width: 920px;
+  &__title {
+    font-size: 16px;
+    margin-left: 16px;
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+  }
+  &__created-at {
+    color: $gray-light;
+  }
+  &__btn {
+    padding: 4px 8px;
+    border: 1px solid $gray-light;
+    color: $gray;
+    cursor: pointer;
+    margin-left: 8px;
+    text-decoration: none;
+    &:last-child {
+      margin-right: 16px;
+    }
+    &:hover {
+      color: $white;
+      background: $gray;
+    }
+  }
+}
+
+.error {
+  color: $error;
+  text-align: center;
+  font-weight: 700;
+}
+
+footer {
+  padding: 10px 0px;
+  background-color: $primary;
+  font-size: 14px;
+  color: $white;
+  text-align: center;
+}
