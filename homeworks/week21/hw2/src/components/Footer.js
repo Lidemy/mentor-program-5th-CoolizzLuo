@@ -12,7 +12,7 @@ const FooterWrapper = styled.footer`
   padding: 0.1rem 0.5rem;
   margin-top: 4rem;
   user-select: none;
-  z-index: -1;
+  /* z-index: -1; */
 
   span {
     display: block;

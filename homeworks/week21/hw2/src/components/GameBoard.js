@@ -70,67 +70,67 @@ const SquareWrapper = styled.div`
     border-top: 1px solid #111;
     transform: translateY(-50%);
   }
+`
 
-  i.chess {
+const Chess = styled.i`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+  z-index: 1;
+  
+
+  /* Black chess */
+  ${({chess}) => (chess === 1 || chess === 6) && `
+    background: linear-gradient(315deg, #dadada, #fff) !important;
+    box-shadow: inset 16px 14px 10px 1px #000, -3px -3px 3px -2px #353232 !important;
+    opacity: 1 !important;
+  `}
+
+  /* White chess */
+  ${({chess}) => (chess === 2 || chess === 7) && `
+    background: linear-gradient(315deg, #ccc, #111) !important;
+    box-shadow: inset 16px 14px 10px 1px #ddd, -3px -3px 3px -2px #666 !important;
+    opacity: 1 !important;
+  `}
+
+  /* Winner chess */
+  ${({chess}) => (chess === 6 || chess === 7) && `
+    animation: shine 1.5s infinite;
+  `}
+
+  @keyframes shine{
+    10% {
+      opacity: 1;
+      transition-property: left, top, opacity;
+      transition-duration: 0.7s, 0.7s, 0.15s;
+      transition-timing-function: ease;
+    }
+    100% {
+      opacity: 0;
+      transition-property: left, top, opacity;
+    }
+  }
+
+  &:active {
+    transform: translate(-60%, -60%);
+  }
+
+  &::after {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    width: 1.4rem;
-    height: 1.4rem;
-    z-index: 1;
-    
-
-    /* Black chess */
-    ${({chess}) => (chess === 1 || chess === 6) && `
-      background: linear-gradient(315deg, #dadada, #fff);
-      box-shadow: inset 16px 14px 10px 1px #000, -3px -3px 3px -2px #353232;
-      opacity: 1;
+    ${({mark, chess}) => (mark && !chess) && `
+      content: '';
+      width: .5rem;
+      height: .5rem;
+      background: #111;
     `}
-
-    /* White chess */
-    ${({chess}) => (chess === 2 || chess === 7) && `
-      background: linear-gradient(315deg, #ccc, #111);
-      box-shadow: inset 16px 14px 10px 1px #ddd, -3px -3px 3px -2px #666;
-      opacity: 1;
-    `}
-
-    /* Winner chess */
-    ${({chess}) => (chess === 6 || chess === 7) && `
-      animation: shine 1.5s infinite;
-    `}
-
-    @keyframes shine{
-      10% {
-        opacity: 1;
-        transition-property: left, top, opacity;
-        transition-duration: 0.7s, 0.7s, 0.15s;
-        transition-timing-function: ease;
-      }
-      100% {
-        opacity: 0;
-        transition-property: left, top, opacity;
-      }
-    }
-
-    &:active {
-      transform: translate(-60%, -60%);
-    }
-
-    &::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      ${({mark, chess}) => (mark && !chess) && `
-        content: '';
-        width: .5rem;
-        height: .5rem;
-        background: #111;
-      `}
-    }
   }
 `
 
@@ -142,14 +142,13 @@ const GameBoard = ({winner, winnerBoard, hover, squares, onClick}) => {
     <BoardWrapper hover={hover} >
       { 
         (winner ? winnerBoard : squares).map((row_square, row) => (
-          row_square.map((col_square, col) => (
+          row_square.map((chessValue, col) => (
             <SquareWrapper 
               key={`${row}-${col}`} 
-              chess={col_square}
               mark={isMark(row, col)}
               onClick={() => onClick(row, col)}
             >
-              <i className='chess'></i>
+              <Chess chess={chessValue}/>
             </SquareWrapper>
           ))
         ))
