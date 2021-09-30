@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from 'react'
+import { useMemo, useRef, useCallback } from 'react'
 import useInput from './useInput'
 import Input from './Input'
 import Radio from './Radio'
@@ -93,10 +93,10 @@ const Form = () => {
   const reason = useInput()
   const other = useInput()
   const signUpType = useInput()
-  const signUpOptions = [
+  const signUpOptions = useRef([
     { option: '躺在床上用想像力實作', value: '1' },
     { option: '趴在地上滑手機找現成的', value: '2' },
-  ]
+  ])
 
   const haveEmptyData = useMemo(() => (
     username.isEmpty || email.isEmpty || phone.isEmpty || reason.isEmpty || signUpType.isEmpty 
@@ -127,7 +127,7 @@ const Form = () => {
       <div className="input-block required">
         <Radio
           radioData={signUpType}
-          radioOptions={signUpOptions}
+          radioOptions={signUpOptions.current}
           name="sign-up"
           labelName={'報名類型'}
           errMsg={'請選擇報名類型'}
