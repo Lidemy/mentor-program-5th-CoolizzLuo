@@ -1,0 +1,17 @@
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,500,700,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+html,
+body {
+  background: #f7f1f1;
+  font-size: 1.1rem;
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+  padding: 5px;
+}
