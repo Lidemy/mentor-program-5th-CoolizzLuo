@@ -25,8 +25,8 @@ import {
 
 
 const schema = yup.object({
-  nickname: yup.string().min(2).max(8).required(),
-  username: yup.string().min(4).max(8).required(),
+  nickname: yup.string().min(2).max(8).matches(/^[A-Za-z]{1}[A-Za-z0-9]+$/, 'Must be word or number').required(),
+  username: yup.string().min(4).max(8).matches(/^[A-Za-z]{1}[A-Za-z0-9]+$/, 'Must be word or number').required(),
   password: yup.string().min(6).max(12).required(),
   confirmPassword: yup.string().min(6).max(12).oneOf([yup.ref('password'), null], 'Passwords must be match').required(),
   checkRules: yup.boolean().oneOf([true], '(must be required)'),
